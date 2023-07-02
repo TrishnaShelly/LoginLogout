@@ -1,0 +1,48 @@
+﻿@model LoginLogout.Models.user
+@{
+    ViewBag.Title = "SignUp";
+}
+
+@Html.Raw(ViewBag.InsertMessage)
+@using (Html.BeginForm("SignUp","login",FormMethod.Post
+    ))
+{
+    @Html.ValidationSummary(true, "Registeration Failed.", new { @class = "text-danger" });
+    <div>
+        <fieldset>
+            <legend>Register Form</legend>
+            <div class="editor-label">@Html.LabelFor(u => u.UsrEmail)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.UsrEmail)
+                @Html.ValidationMessageFor(u => u.UsrEmail, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.usrName)</div>
+            <div class="editor-field">
+                @Html.TextBoxFor(u => u.usrName)
+                @Html.ValidationMessageFor(u => u.usrName, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.UsrPass)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.UsrPass)
+                @Html.ValidationMessageFor(u => u.UsrPass, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="editor-label">@Html.LabelFor(u => u.Pass)</div>
+            <div class="editor-field">
+                @Html.PasswordFor(u => u.Pass)
+                @Html.ValidationMessageFor(u => u.Pass, "", new { @class = "text-danger" })
+            </div>
+            
+            <br />
+            <input type="submit" value="Register" />
+        </fieldset>
+    </div>
+}
+
+
+
+<div>
+    @Html.ActionLink("Already Registered !Click Here", "Index", "Login")
+</div>
